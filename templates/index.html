@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Home </title>
+    <link rel="stylesheet" href="../static/styles/styles.css">
+</head>
+
+<body>
+    <ul class="nav">
+        <div class="nav_bar">
+            <a href="/home">Home</a>
+        </div>
+        <div class="nav_bar">
+            <a href="/predictor">Live Predictions</a>
+        </div>
+        <div class="nav_bar">
+            <a href="/contact"> Contact </a>
+        </div>
+    </ul>
+    <header>
+        <ul>
+            <h1>Predicting Survey Responses for Galaxy Mophologies</h1>
+        </ul> 
+    </header>
+    <section> 
+        <ul>
+            <h2> Project Summary:</h2>
+        </ul>
+        <ul>
+            <p>This project involoved the development of a custom convolutional neural network to simulate survey results for different galaxy morphologies. The survey covered 37 possible responses and is summarized below:</p> 
+        </ul>
+        <ul>
+            <img src="../static/images/GalaxtZooTree.png">
+        </ul>
+        <ul>
+            <p>Training was constrained to a 4 core laptop with emphasis of the project being on low computation. The final model architecture utilizes downsampling in the first three convolutional layers in order to allow for training on a conventional laptop. This final architecture is shown below:</p>
+        </ul>
+        <ul>
+            <img src="../static/images/final_model_summary.png" class="small">
+        </ul>
+        <ul>
+            <p>The model converges after ~7 epochs through the data settling on a RMSE around 10.7.</p>
+        </ul>
+        <ul>
+            <img src="../static/images/loss_history.png">
+        </ul>
+        <ul>
+            <h2> Results: </h2>
+        </ul>
+        <ul>
+            <p>The final model was trained on 55000 images and valiated on the remaining 6000. The submission scores 0.10758 on kaggle which would put it in 68th position (Bronze).</p>
+        </ul>
+        <ul>
+            <img src="../static/images/kaggle_score.png",class="vsmall">
+        </ul>
+    </section>
+
+</body>
+</html>

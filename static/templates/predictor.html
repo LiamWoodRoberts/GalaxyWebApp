@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Galaxy Morphology Predictor</title>
+  <link rel="stylesheet" href="../static/styles/styles.css">
+</head>
+
+<body>
+    <ul class="nav">
+        <div class="nav_bar">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="nav_bar">
+            <a href="predictor.html">Live Demo</a>
+        </div>
+        <div class="nav_bar">
+            <a href="contact.html"> Contact </a>
+        </div>
+    </ul>
+
+    <header>
+      <ul>
+        <h1>Galaxy Morphology Predictor</h1>
+      </ul>
+    </header>
+
+    <section>
+      <ul>
+        <p> This demo provides model predictions and crowd sourced responses for the first survey question: </p>
+      </ul>
+      <ul>
+          <p><strong>Is the Galaxy: 1. Simply smooth, 2. Have features / disk, 3. A star</strong></p>
+      </ul>
+      <ul>
+        <div class="image">
+            <img src={{image}} alt="Sample Galaxy">
+        </div>
+      </ul>
+      <ul>
+        <div>
+          {{table|safe}}
+        </div>
+      </ul>
+    </section>
+
+    <header>
+      <ul>
+        <button> Predict New </button>
+      </ul>
+    </header>
+
+    <section>
+    </section>
+
+</body>
+</html>
