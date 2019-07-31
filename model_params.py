@@ -14,7 +14,7 @@ class params:
 
         '''
         # Path to Folder
-        folder_path = 'GalaxyWebApp/static/data/'
+        folder_path = 'app/static/data/'
         self.folder_path = folder_path
         self.model_path = folder_path
         self.label_path = f'{folder_path}training_labels.csv'
