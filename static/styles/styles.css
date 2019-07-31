@@ -1,0 +1,120 @@
+body{
+    background:rgb(80,80,80);
+    color: white;
+    font-family: Perpetua;
+}
+
+header {
+    background: linear-gradient(rgb(20,20,20),rgb(50,50,50));
+    padding: 20px;
+}
+
+header.nav_bar {
+    background:rgb(20,20,20);
+    padding:1px;
+}
+
+div {
+    background: rgb(40,40,40);
+    margin: auto;
+    width: auto;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+div.nav_bar {
+    width: 33%;
+}
+
+div.image{
+    background: rgb(15,30,80);
+    height: auto;
+    padding: 10px;
+}
+
+div.data {
+  background: white;
+  height:auto;
+  padding: 10px;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+}
+
+
+li {
+    margin: auto;
+    height: auto;
+    width: auto;
+    padding: 3px;
+}
+
+p {
+    color:black;
+    margin:auto;
+}
+a {
+    font-size: 30px;
+    margin:auto;
+    color:whitesmoke;
+}
+section {
+    background: rgb(200,200,200);
+    color: gray;
+    padding:20px;
+}
+
+section.spaced {
+    margin: 5px 0px;
+}
+section.center {
+    display: flex;
+    flex-direction: row;
+}
+
+footer {
+    background: black;
+    display: flex;
+    flex-direction:row;
+}
+img {
+    max-width:100%;
+    height:auto;
+    width:auto;
+    margin:auto;
+}
+
+img.small {
+    max-width: 60%;
+}
+
+img.vsmall {
+    max-width: 10%;
+}
+
+img.icon {
+    width: 50px;
+    height: auto;
+}
+h1 {
+    color:whitesmoke;
+    margin:auto;
+    text-decoration: underline;
+}
+
+h1.paragraph {
+    color:black;
+}
+
+h2 {
+    margin:auto;
+    color:black;
+}
+button {
+    background: white;
+    margin: auto;
+    padding: 5px 25px;
+}
