@@ -1,1 +1,1 @@
-web: gunicorn predictor_app.py:app
+web: gunicorn app:predictor_app.py
