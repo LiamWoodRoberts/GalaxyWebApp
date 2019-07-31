@@ -25,4 +25,4 @@ def contact():
 if __name__ == '__main__':
     app.run(debug=False)
 
-# export FLASK_APP=predictor_app.py
+# export FLASK_APP=app.py
