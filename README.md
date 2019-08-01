@@ -4,7 +4,7 @@ Deployed Web App for Survey Response Prediction of Galaxy Morphologies available
 
 https://galaxy-morphology-predictor.herokuapp.com/
 
-Requirments:
+### Requirements:
 
 Project is run entirely in python with html and css file for the application. Requires: flask keras,tensorflow,sklearn,numpy,pandas and skimage. All dependancies can be downloaded through requirments.txt file.
 
@@ -36,11 +36,11 @@ https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge/data
 
 ### Running the Application:
 
-- 0. Create a folder to house application
+1. Create a folder to house application
 
-- 1. Download repo with:
+2. Download repo with:
 
 <code> git clone https://github.com/LiamWoodRoberts/GalaxyWebApp.git </code>
 
-- 2. Update folder_path variable in model_params.py with absolute path to folder.
+3. Update folder_path variable in model_params.py with absolute path to folder.
 
