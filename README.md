@@ -10,7 +10,7 @@ Project is run entirely in python with html and css file for the application. Re
 
 <code> pip install -r requirments.txt </code>
 
-Dataset:
+### Dataset:
 
 Data set is available publically at:
 
@@ -33,4 +33,14 @@ https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge/data
 **static:** contains all data files called by predictor.py file (images,labels,trained model). Also contains css styles.
 
 **templates:** contains html code for each page of the application.
+
+### Running the Application
+
+#### 0. Create a folder to house application
+
+#### 1. Download repo with:
+
+<code> git clone https://github.com/LiamWoodRoberts/GalaxyWebApp.git </code>
+
+#### 2. Update folder_path variable in model_params.py with absolute path to folder.
 
