@@ -1,6 +1,6 @@
 
 # GalaxyWebApp
-Deployed Web App for Survey Response Prediction of Galaxy Morphologies
+Deployed Web App for Survey Response Prediction of Galaxy Morphologies available:
 
-Add Test
-Add Test 2
+https://galaxy-morphology-predictor.herokuapp.com/
+
