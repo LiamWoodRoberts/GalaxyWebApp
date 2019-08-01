@@ -8,7 +8,7 @@ https://galaxy-morphology-predictor.herokuapp.com/
 
 Project is run entirely in python with html and css file for the application. Requires: flask keras,tensorflow,sklearn,numpy,pandas and skimage. All dependancies can be downloaded through requirments.txt file.
 
-<code> pip install -r requirments.txt </code>
+- <code> pip install -r requirments.txt </code>
 
 ### Dataset:
 
