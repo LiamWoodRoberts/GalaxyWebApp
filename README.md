@@ -40,7 +40,7 @@ https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge/data
 
 2. Download repo with:
 
-<code> git clone https://github.com/LiamWoodRoberts/GalaxyWebApp.git </code>
+- <code> git clone https://github.com/LiamWoodRoberts/GalaxyWebApp.git </code>
 
 3. Update folder_path variable in model_params.py with absolute path to folder.
 
