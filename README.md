@@ -18,9 +18,9 @@ https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge/data
 
 ### File Summaries:
 
-**app.py:** Contains python code for flask web application.
+- **app.py:** Contains python code for flask web application.
 
-**predictor.py:** File used to generate predictions from sample of 100 galaxy images. Called by app.py for predictor.html page.
+- **predictor.py:** File used to generate predictions from sample of 100 galaxy images. Called by app.py for predictor.html page.
 
 **model_params.py:** Contains parameters such as file path which are called by the predictor.py file.
 
