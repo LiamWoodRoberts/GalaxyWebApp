@@ -34,13 +34,13 @@ https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge/data
 
 **templates:** contains html code for each page of the application.
 
-### Running the Application
+### Running the Application:
 
-#### 0. Create a folder to house application
+####    0. Create a folder to house application
 
-#### 1. Download repo with:
+####    1. Download repo with:
 
 <code> git clone https://github.com/LiamWoodRoberts/GalaxyWebApp.git </code>
 
-#### 2. Update folder_path variable in model_params.py with absolute path to folder.
+####    2. Update folder_path variable in model_params.py with absolute path to folder.
 
