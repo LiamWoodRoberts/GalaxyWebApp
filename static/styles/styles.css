@@ -2,20 +2,22 @@ body{
     background:rgb(80,80,80);
     color: white;
     font-family: Perpetua;
+    margin:0;
+    padding:0;
 }
 
 header {
-    background: linear-gradient(rgb(20,20,20),rgb(50,50,50));
+    background: rgb(30,30,30);
     padding: 20px;
 }
 
 header.nav_bar {
-    background:rgb(20,20,20);
+    background:rgb(30,30,30);
     padding:1px;
 }
 
 div {
-    background: rgb(40,40,40);
+    background: rgb(30,30,30);
     margin: auto;
     width: auto;
     height: 50px;
@@ -24,13 +26,20 @@ div {
 }
 
 div.nav_bar {
+    margin:0;
+    padding:0;
     width: 33%;
 }
 
 div.image{
-    background: rgb(15,30,80);
+    background:rgb(200,200,200);
     height: auto;
-    padding: 10px;
+}
+
+div.foot{
+    background:rgb(200,200,200);
+    width:230px;
+    height:auto;
 }
 
 div.data {
@@ -42,24 +51,26 @@ div.data {
 ul {
     display: flex;
     flex-direction: row;
+    list-style-type: none;
 }
 
 
 li {
     margin: auto;
     height: auto;
-    width: auto;
+    width:500px;
     padding: 3px;
 }
 
 p {
     color:black;
     margin:auto;
+    width:400;
 }
 a {
     font-size: 30px;
     margin:auto;
-    color:whitesmoke;
+    color:rgb(43, 62, 124);
 }
 section {
     background: rgb(200,200,200);
@@ -88,7 +99,7 @@ img {
 }
 
 img.small {
-    max-width: 60%;
+    max-width: 80%;
 }
 
 img.vsmall {
@@ -100,9 +111,8 @@ img.icon {
     height: auto;
 }
 h1 {
-    color:whitesmoke;
+    color:rgb(43, 62, 124);
     margin:auto;
-    text-decoration: underline;
 }
 
 h1.paragraph {

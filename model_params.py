@@ -11,11 +11,17 @@ class params:
         n_images - the number of images to train on
         batch_size - what batch size to use when training CNN
         epochs - How many passes through the data set when training model
-
+        
         '''
         # Path to Folder
+        
+        # for heroku
         folder_path = '/app/static/data/'
-        #folder_path = "/Users/LiamRoberts/Desktop/GalaxyWebApp/static/data/"
+
+        # local
+        # folder_path = "/Users/LiamRoberts/Desktop/GalaxyWebApp/static/data/"
+        
+        # file paths
         self.folder_path = folder_path
         self.model_path = folder_path
         self.label_path = f'{folder_path}training_labels.csv'
