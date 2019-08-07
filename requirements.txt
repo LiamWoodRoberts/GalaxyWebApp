@@ -1,7 +1,9 @@
 absl-py==0.2.2
+aniso8601==7.0.0
 appnope==0.1.0
 asn1crypto==0.24.0
 astor==0.7.1
+attrs==19.1.0
 backcall==0.1.0
 certifi==2019.6.16
 cffi==1.12.3
@@ -13,6 +15,9 @@ cycler==0.10.0
 dask==0.18.1
 decorator==4.3.0
 Flask==1.1.1
+Flask-Cors==3.0.8
+flask-restplus==0.12.1
+flask-swagger-ui==3.20.9
 gast==0.2.0
 grpcio==1.13.0
 gunicorn==19.9.0
@@ -24,6 +29,7 @@ ipython-genutils==0.2.0
 itsdangerous==1.1.0
 jedi==0.12.1
 Jinja2==2.10.1
+jsonschema==3.0.2
 jupyter-client==5.2.3
 jupyter-core==4.4.0
 Keras==2.2.0
@@ -47,13 +53,16 @@ pycparser==2.19
 Pygments==2.2.0
 pyOpenSSL==19.0.0
 pyparsing==2.2.0
+pyrsistent==0.15.4
 PySocks==1.7.0
 python-dateutil==2.7.3
 pytz==2018.5
 PyWavelets==0.5.2
 PyYAML==3.13
 pyzmq==17.1.0
+repoze.lru==0.7
 requests==2.22.0
+Routes==2.4.1
 scikit-image==0.14.0
 scikit-learn==0.19.2
 scipy==1.1.0

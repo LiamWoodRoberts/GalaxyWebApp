@@ -38,8 +38,9 @@ div.image{
 
 div.foot{
     background:rgb(200,200,200);
-    width:230px;
+    width:170px;
     height:auto;
+    align-items:center;
 }
 
 div.data {
@@ -72,6 +73,12 @@ a {
     margin:auto;
     color:rgb(43, 62, 124);
 }
+
+a.foot {
+    font-size:20px;
+    text-align: center;
+}
+
 section {
     background: rgb(200,200,200);
     color: gray;
