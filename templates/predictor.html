@@ -9,10 +9,10 @@
 <body>
     <ul class="nav">
         <div class="nav_bar">
-            <a href="/home">Home</a>
+            <a href="/home">Info</a>
         </div>
         <div class="nav_bar">
-            <a href="/predictor">Live Predictions</a>
+            <a href="/predictor">Demo</a>
         </div>
         <div class="nav_bar">
             <a href="/contact"> Contact </a>
@@ -37,10 +37,26 @@
             <img src={{image}} alt="Sample Galaxy">
         </div>
       </ul>
+
       <ul>
-        <div class="data">
-          {{table|safe}}
-        </div>
+          <table>
+              <thead>
+                  <tr>
+                      {% for col in columns %}
+                      <th>{{ col }}</th>
+                      {% endfor %}
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for row in preds %}
+                  <tr>
+                      {% for val in row %}
+                      <td>{{ val }}</td>
+                      {% endfor %}
+                  {% endfor %}
+                  </tr>
+              </tbody>
+          </table>
       </ul>
     </section>
 
@@ -53,7 +69,34 @@
     </header>
 
     <section>
-    </section>
+ 
+    <ul>
+        <li>    
+            <div class="foot">
+                <a href="https://github.com/LiamWoodRoberts/Image_Classification_for_Galaxy_Morphologies" class="foot">
+                    <img src="../static/images/github.svg" class="icon">
+                    Model Training</a>
+            </div>
+        </li>
 
+        <li>    
+            <div class="foot">
+                <a href="https://github.com/LiamWoodRoberts/GalaxyWebApp" class="foot">
+                    <img src="../static/images/github.svg" class="icon">
+                    Web App</a>
+            </div>
+        </li>
+        <li>    
+            <div class="foot">
+                <a href="/galaxy_api/documentation" class="foot">
+                    <img src="../static/images/swagger.png" class="icon">
+                    API</a>
+            </div>
+        </li>
+
+    </ul>
+    </section>
+    <header class="nav_bar">
+    </header>
 </body>
 </html>

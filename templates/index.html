@@ -11,15 +11,16 @@
 <body>
     <ul class="nav">
         <div class="nav_bar">
-            <a href="/home">Home</a>
+            <a href="/home">Info</a>
         </div>
         <div class="nav_bar">
-            <a href="/predictor">Live Predictions</a>
+            <a href="/predictor">Demo</a>
         </div>
         <div class="nav_bar">
             <a href="/contact"> Contact </a>
         </div>
     </ul>
+
     <header>
         <ul>
             <h1>Predicting Survey Responses for Galaxy Mophologies</h1>
@@ -30,33 +31,84 @@
             <h2> Project Summary:</h2>
         </ul>
         <ul>
-            <p>This project involoved the development of a custom convolutional neural network to simulate survey results for different galaxy morphologies. The survey covered 37 possible responses and is summarized below:</p> 
+            <li>
+                <p>This project involoved the development of a custom convolutional neural network to simulate survey results for different galaxy morphologies. The survey covered 37 possible responses and is summarized below:</p> 
+            </li>
         </ul>
         <ul>
-            <img src="../static/images/GalaxtZooTree.png">
+            <li>
+                <img src="../static/images/GalaxtZooTree.png">
+            </li>
         </ul>
         <ul>
-            <p>Training was constrained to a 4 core laptop with emphasis of the project being on low computation. The final model architecture utilizes downsampling in the first three convolutional layers in order to allow for training on a conventional laptop. This final architecture is shown below:</p>
+            <li>
+                <p>Training was constrained to a 4 core laptop with emphasis of the project being on low computation. The final model architecture utilizes downsampling in the first three convolutional layers in order to allow for training on a conventional laptop. This final architecture is shown below:</p>
+            </li>
         </ul>
         <ul>
-            <img src="../static/images/final_model_summary.png" class="small">
+            <li>
+                <div class=image>
+                    <img src="../static/images/final_model_summary.png" class="small">
+                </div>
+            </li>
         </ul>
         <ul>
-            <p>The model converges after ~7 epochs through the data settling on a RMSE around 10.7.</p>
+            <li>
+                <p>The model converges after ~7 epochs through the data achieving a validation RMSE around 10.7.</p>
+            </li>
         </ul>
         <ul>
-            <img src="../static/images/loss_history.png">
+            <li>
+                <div class="image">
+                    <img src="../static/images/loss_history.png">
+                </div>
+            </li>
         </ul>
         <ul>
             <h2> Results: </h2>
         </ul>
         <ul>
-            <p>The final model was trained on 55000 images and valiated on the remaining 6000. The submission scores 0.10758 on kaggle which would put it in 68th position (Bronze).</p>
+            <li>
+                <p>The final model was trained on 55000 images and valiated on the remaining 6000. The submission scores 0.10758 on kaggle which would put it in 68th position (Bronze).</p>
+            </li>
         </ul>
         <ul>
-            <img src="../static/images/kaggle_score.png",class="vsmall">
+            <li>
+                <img src="../static/images/kaggle_score.png",class="vsmall">
+            </li>
         </ul>
     </section>
+    <header class="nav_bar">
+    </header>
+    <section>
+    <ul>
+            <li>    
+                <div class="foot">
+                    <a href="https://github.com/LiamWoodRoberts/Image_Classification_for_Galaxy_Morphologies" class="foot">
+                        <img src="../static/images/github.svg" class="icon">
+                        Model Training</a>
+                </div>
+            </li>
+    
+            <li>    
+                <div class="foot">
+                    <a href="https://github.com/LiamWoodRoberts/GalaxyWebApp" class="foot">
+                        <img src="../static/images/github.svg" class="icon">
+                        Web App</a>
+                </div>
+            </li>
+            <li>    
+                <div class="foot">
+                    <a href="/galaxy_api/documentation" class="foot">
+                        <img src="../static/images/swagger.png" class="icon">
+                        API</a>
+                </div>
+            </li>
+    
+        </ul>
+    </section>
+    <header class="nav_bar">
+    </header>
 
 </body>
 </html>
