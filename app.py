@@ -15,6 +15,8 @@ api_name = 'Galaxy Morphology Survey Response Prediction Model'
 api = Api(blueprint,default=api_name,doc='/documentation')
 app.register_blueprint(blueprint)
 
+# model loading procedure (global variable)
+
 @app.route("/")
 @app.route("/home")
 def home():
@@ -39,8 +41,5 @@ class galaxy_api(Resource):
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
-
-if __name__ == '__main__':
-    app.run(debug=True)
 
 # export FLASK_APP=app.py
