@@ -81,13 +81,8 @@ class predict(Resource):
 @api.route("/eval")
 class eval(Resource):
     def get(self):
-        host_url = request.url_root
-        index = requests.get(host_url+"galaxy_api/index").json()
-        image = requests.post(host_url+"galaxy_api/image",data={"index":index}).json()
-        image = requests.post(host_url+"galaxy_api/process_image",json={"image":image}).json()
-        preds = requests.post(host_url+"galaxy_api/predict",json={"image":image}).json()
-        df = predictor.generate_df(preds,index,model_params)
-        return jsonify(index=index,df=df.to_json())
+        df,index = predictor.generate_sample(model)
+        return jsonify(index=str(index),df=df.to_json())
 
 @app.route("/")
 @app.route("/home")

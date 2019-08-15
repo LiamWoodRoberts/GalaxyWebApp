@@ -99,13 +99,14 @@ def generate_df(preds,index,model_params):
     df['Average'] = df.mean(axis=1)
     return df
 
-def generate_sample():
+def generate_sample(model):
     model_params = params()
     labels = label_loader(model_params.label_path)
     index = get_random_index(params())
     label = labels.loc[[index]]
     cols = label.columns
-    prediction = pd.DataFrame(predict_sample(model_params,index),columns = cols)
+    preds = model.predict(preprocess(get_image(model_params,index),model_params))
+    prediction = pd.DataFrame(preds,columns = cols)
     diffs = np.abs(label.values-prediction.values)
     diffs = pd.DataFrame(diffs,columns = cols)
     df = pd.concat((prediction,label,diffs),axis=0)
