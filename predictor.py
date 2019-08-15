@@ -1,7 +1,8 @@
 from model_params import params
 from skimage.io import imread
 import numpy as np
-import scipy.misc
+from scipy.misc import imresize
+from scipy import ndimage
 import os
 import pandas as pd
 import keras.backend as K
@@ -22,11 +23,28 @@ def get_file_names(folder):
 def get_random_index(params):
     '''Accepts model parameters and returns the index of a random image in
     the dataset'''
-
     images_path = params.image_path
     indices = [int(i[:-4]) for i in get_file_names(images_path)]
-
     return np.random.choice(indices,size=1)[0]
+
+def process_new(params,new):
+    path = params.folder_path
+
+    # Load Placeholder Image or User Image
+    if new:
+        image = ndimage.imread(f'{path[:-5]}images/user_input_image',mode='RGB')
+    else:
+        image = ndimage.imread(f'{path[:-5]}images/demo2.jpg',mode='RGB')
+    
+    # Resize and Reshape Image
+    image = imresize(image,(169,169))
+    image = image.reshape((1,)+image.shape)
+    
+    # Scale Image
+    means = np.load(f'{path}means.npy')
+    stds = np.load(f'{path}stds.npy')
+
+    return (image - means)/stds
 
 def preprocess(images,params):
     '''
@@ -60,21 +78,28 @@ def load_galaxy_model(params):
     metrics.rmse = rmse
     return load_model(f'{params.model_path}/galaxy_morphology_predictor.h5')
 
-def predict_sample(model_params,index):
+def get_image(model_params,index):
     '''Accepts model parameters and an index of an image, then returns model
     predictions'''
-
-    model = load_galaxy_model(model_params)
-    model_params = params()
     image = imread(f'{model_params.image_path}/{index}.jpg',as_gray=False)
     image = image.reshape((1,)+image.shape)
+    return image
 
-    return model.predict(preprocess(image,model_params))
+def generate_df(preds,index,model_params):
+    labels = label_loader(model_params.label_path)
+    label = labels.loc[[int(index)]]
+    pred_df = pd.DataFrame(preds,columns=label.columns)
+    diffs = np.abs(label.values-pred_df.values)
+    diffs = pd.DataFrame(diffs,columns=label.columns)
+    df = pd.concat((pred_df,label,diffs),axis=0)
+    df[' '] = ['Survey Response','Model Prediction','Absolute Difference']
+    df.set_index(' ',inplace = True)
+    df = df[df.columns[:3]]
+    df.columns = ['Smooth Galaxy','Galaxy with Features/Disk','Star']
+    df['Average'] = df.mean(axis=1)
+    return df
 
 def generate_sample():
-    '''Returns DataFrame containing model predictions, real labels and
-    differences for a random image in the data set'''
-
     model_params = params()
     labels = label_loader(model_params.label_path)
     index = get_random_index(params())

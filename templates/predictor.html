@@ -1,100 +1,43 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <title>Galaxy Morphology Predictor</title>
-  <link rel="stylesheet" href="../static/styles/styles.css">
-</head>
-
-<body>
-    <ul class="nav">
-        <div class="nav_bar">
-            <a href="/home">Info</a>
-        </div>
-        <div class="nav_bar">
-            <a href="/predictor">Demo</a>
-        </div>
-        <div class="nav_bar">
-            <a href="/contact"> Contact </a>
-        </div>
-    </ul>
+{% extends "nav_bar.html" %}
+{% block content %}
 
     <header>
-      <ul>
+      <div>
         <h1>Galaxy Morphology Predictor</h1>
-      </ul>
+      </div>
     </header>
+    <section class="line"></section>
 
-    <section>
-      <ul>
+    <section style="flex-direction:column;">
+      <div class="text">
         <p> This demo provides model predictions and crowd sourced responses for the first survey question: </p>
-      </ul>
-      <ul>
-          <p><strong>Is the Galaxy: 1. Simply smooth, 2. Possess features / disk, 3. A star</strong></p>
-      </ul>
-      <ul>
-        <div class="image">
-            <img src={{image}} alt="Sample Galaxy">
-        </div>
-      </ul>
-
-      <ul>
-          <table>
-              <thead>
-                  <tr>
-                      {% for col in columns %}
-                      <th>{{ col }}</th>
-                      {% endfor %}
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      {% for val in row %}
-                      <td>{{ val }}</td>
-                      {% endfor %}
-                  </tr>
-              </tbody>
-          </table>
-      </ul>
+        <p><strong>Is the Galaxy: 1. Simply smooth, 2. Possess features / disk, 3. A star</strong></p>
+        <img src={{image}} alt="Sample Galaxy">
+        <table>
+            <thead>
+                <tr>
+                    {% for col in columns %}
+                    <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in values %}
+                <tr>
+                    {% for val in row %}
+                    <td>{{ val }}</td>
+                    {% endfor %}
+                {% endfor %}
+                </tr>
+            </tbody>
+        </table>
     </section>
 
-    <header>
-      <ul>
-        <a href="/predictor">
+    <section>
+      <div>
+        <a href="/demo">
           <button> Predict New </button>
         </a>
-      </ul>
-    </header>
-
-    <section>
- 
-    <ul>
-        <li>    
-            <div class="foot">
-                <a href="https://github.com/LiamWoodRoberts/Image_Classification_for_Galaxy_Morphologies" class="foot">
-                    <img src="../static/images/github.svg" class="icon">
-                    Model Training</a>
-            </div>
-        </li>
-
-        <li>    
-            <div class="foot">
-                <a href="https://github.com/LiamWoodRoberts/GalaxyWebApp" class="foot">
-                    <img src="../static/images/github.svg" class="icon">
-                    Web App</a>
-            </div>
-        </li>
-        <li>    
-            <div class="foot">
-                <a href="/galaxy_api/documentation" class="foot">
-                    <img src="../static/images/swagger.png" class="icon">
-                    API</a>
-            </div>
-        </li>
-
-    </ul>
+      </div>
     </section>
-    <header class="nav_bar">
-    </header>
-</body>
-</html>
+ {% endblock content %}

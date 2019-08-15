@@ -1,4 +1,6 @@
 import json
+import io
+import numpy as np
 
 def parse_table(output):
     '''takes prediction output of galaxy_api and returns columns and values
@@ -16,8 +18,7 @@ def parse_response(r):
     cols - column names of prediction table
     parsed_pred - rounded row values for prediction table
     '''
-    r = r.json()
-    image_path = r['image_path']
-    prediction = json.loads(r['prediction'])
-    cols,parsed_pred = parse_table(prediction)
-    return image_path,cols,parsed_pred
+    index = r['index']
+    df = json.loads(r['df'])
+    cols,values = parse_table(df)
+    return index,cols,values
