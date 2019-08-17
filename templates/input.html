@@ -1,0 +1,49 @@
+{% extends "nav_bar.html" %}
+{% block content %}
+
+<section style="flex-direction:column;">
+    <div class="text">
+        <h2 style="margin:auto;">Uploaded Image</h2>
+        <p><strong>Is the Galaxy: 1. Simply smooth, 2. Possess features / disk, 3. A star</strong></p>
+    </div>
+    <div style="margin:10px;" class="text">
+    </div>
+    <div class="text">
+        <img style="height:412px; width:412px; margin:auto;" src={{image}}>
+    </div>
+    
+    <div style="margin:10px;" class="text">
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Smooth Galaxy</th>
+                <th>Galaxy with Features/Disk</th>
+                <th>Star</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for val in preds %}
+                <td>{{ val }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="margin:5px;" class="text">
+    </div>
+
+    <div class="text">
+            <div class="text">
+                <h3 style="margin:auto;">Upload New</h3>
+                <form method="POST" action="/upload" enctype="multipart/form-data">
+                    <input style="width:160px;" type="file" name="image",id="image">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+</section>
+
+{% endblock content %}
