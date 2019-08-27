@@ -1,4 +1,4 @@
-from model_params import params
+from app.model_params import params
 from skimage.io import imread
 import numpy as np
 from scipy.misc import imresize
@@ -32,9 +32,9 @@ def process_new(params,new):
 
     # Load Placeholder Image or User Image
     if new:
-        image = ndimage.imread(f'{path[:-5]}images/user_input_image',mode='RGB')
+        image = ndimage.imread(f'{path[:-5]}/images/user_input_image',mode='RGB')
     else:
-        image = ndimage.imread(f'{path[:-5]}images/demo2.jpg',mode='RGB')
+        image = ndimage.imread(f'{path[:-5]}/images/demo2.jpg',mode='RGB')
     
     # Resize and Reshape Image
     image = imresize(image,(169,169))
@@ -74,9 +74,12 @@ def rmse(y_true,y_pred):
 
 def load_galaxy_model(params):
     '''Loads stored keras model with rmse loss and metric'''
+    #Before prediction
+    K.clear_session()
+
     losses.rmse = rmse
     metrics.rmse = rmse
-    return load_model(f'{params.model_path}/galaxy_morphology_predictor.h5')
+    return load_model(f'{params.model_path}galaxy_morphology_predictor.h5')
 
 def get_image(model_params,index):
     '''Accepts model parameters and an index of an image, then returns model

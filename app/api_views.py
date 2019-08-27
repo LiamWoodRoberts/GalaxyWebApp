@@ -1,4 +1,19 @@
-from app import *
+# Import init variables
+from app import app,api,model_params,model
+from app.utils import parse_response
+from app import predictor,utils
+
+# Import Packages
+# Import necessary packages
+from flask_restplus import reqparse,Resource
+from flask import jsonify,request
+import requests
+import json
+import numpy as np
+import os
+
+# FLASK TF BUGFIX
+model._make_predict_function()
 
 @api.route("/index")
 class index(Resource):

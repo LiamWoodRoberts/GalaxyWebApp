@@ -1,0 +1,34 @@
+{% extends "base_templates/nav_bar2.html" %}
+{% block content %}
+
+<div class="container align-items-center" style="min-height:82vh;">
+    <div style="height:6vh"></div>
+    <div class="row justify-content-around">
+        <div class="card-deck">
+            <div class="card" style="max-width:370px;">
+                <img src="../static/images/raw_images_sample.png" class="card-img-top img-thumbnail"
+                    style="height:18rem" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Survey Comparisons</h5>
+                    <p class="card-text">See how the model performs compared to crowd sourced survey results.</p>
+                    <a href="/demo" class="btn btn-primary">To Results</a>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="max-width:370px;">
+            <img src="../static/images/demo4.jpeg" class="card-img-top img-thumbnail" style="height:18rem;" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Live Upload</h5>
+                <p class="card-text">Try yourself to see how well the model can identify new uploaded images of
+                    galaxies.</p>
+                <a href="/input" class="btn btn-primary">To Uploads</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p><br></p>
+    </div>
+</div>
+
+
+{% endblock content %}
