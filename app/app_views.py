@@ -1,5 +1,5 @@
 # Import init variables
-from app import app,model_params,model
+from app import app,model_params,model,graph
 from app.predictor import generate_sample,process_new
 from app.utils import randomString
 
@@ -53,7 +53,8 @@ def upload_image():
 @app.route("/input")
 def init_input():
     image = process_new(model_params,False)
-    preds = model.predict(image)
+    with graph.as_default():
+        preds = model.predict(image)
     preds = preds[0]
     preds = [round(val,2) for val in preds[:3]]
     image_loc = "../static/images/demo2.jpg"

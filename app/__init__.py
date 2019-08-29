@@ -1,6 +1,7 @@
 # Init Packages
 from flask import Flask,Blueprint
 from flask_restplus import Api,Resource
+from tensorflow import get_default_graph
 
 # Module code
 from app.predictor import load_galaxy_model
@@ -17,6 +18,7 @@ app.register_blueprint(blueprint)
 # model loading procedure (global variable)
 model_params = params()
 model = load_galaxy_model(model_params)
+graph = get_default_graph()
 
 from app import api_views
 from app import app_views
