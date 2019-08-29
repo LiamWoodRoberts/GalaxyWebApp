@@ -1,4 +1,7 @@
+# app imports
 from app.model_params import params
+
+# Packages
 from skimage.io import imread
 import numpy as np
 from scipy.misc import imresize

@@ -23,7 +23,7 @@ http {
   sendfile on;
 
   # Must read the body in 5 seconds.
-  client_body_timeout 5;
+  client_body_timeout 20;
 
   server {
     listen <%= ENV["PORT"] %>;

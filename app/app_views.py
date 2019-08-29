@@ -1,17 +1,14 @@
 # Import init variables
-from app import app,model_params,model,predictor
-from app.utils import parse_response,parse_table,randomString
+from app import app,model_params,model
+from app.predictor import generate_sample,process_new
+from app.utils import randomString
 
 # Import necessary packages
 from flask_restplus import reqparse
-from flask import render_template,jsonify,request,redirect,session,flash
-import requests
-import json
-import numpy as np
-import os
+from flask import render_template,request,redirect,session,flash
 
 # FLASK TF BUGFIX
-model._make_predict_function()
+#model._make_predict_function()
 
 @app.route("/")
 @app.route("/home")
@@ -20,7 +17,7 @@ def home():
 
 @app.route("/demo")
 def galaxy_predictor():
-    df,index = predictor.generate_sample(model)
+    df,index = generate_sample(model)
     cols = [i for i in df.columns]
     values = [df.iloc[i].round(2) for i in range(len(df))]
     image_path = f'../static/data/demo_images/{index}.jpg'
@@ -55,20 +52,19 @@ def upload_image():
 
 @app.route("/input")
 def init_input():
-    image = predictor.process_new(model_params,False)
+    image = process_new(model_params,False)
     preds = model.predict(image)
     preds = preds[0]
-    preds = [np.round(val,2) for val in preds[:3]]
+    preds = [round(val,2) for val in preds[:3]]
     image_loc = "../static/images/demo2.jpg"
     return render_template("pages/input.html",image=image_loc,preds=preds)
 
 @app.route("/user_input/<session_id>")
 def user_input(session_id):
-    image = predictor.process_new(model_params,True)
-    host_url = request.url_root
+    image = process_new(model_params,True)
     preds = model.predict(image)
     preds = preds[0]
-    preds = [np.round(val,2) for val in preds[:3]]
+    preds = [round(val,2) for val in preds[:3]]
     image_loc = "../static/images/user_input_image"
     return render_template("pages/input.html",image=image_loc,preds=preds)
 
