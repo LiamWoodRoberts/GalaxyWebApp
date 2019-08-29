@@ -6,9 +6,12 @@ from app.utils import randomString
 # Import necessary packages
 from flask_restplus import reqparse
 from flask import render_template,request,redirect,session,flash
+import gc
 
 # FLASK TF BUGFIX
 #model._make_predict_function()
+
+gc.collect()
 
 @app.route("/")
 @app.route("/home")
