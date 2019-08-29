@@ -28,7 +28,7 @@ http {
   server {
     listen <%= ENV["PORT"] %>;
     server_name _;
-    keepalive_timeout 5;
+    keepalive_timeout 30;
 
     location / {
       include uwsgi_params;
