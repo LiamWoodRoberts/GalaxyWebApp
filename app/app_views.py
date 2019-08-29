@@ -1,6 +1,6 @@
 # Import init variables
 from app import app,model_params,model,predictor
-from app.utils import parse_response
+from app.utils import parse_response,parse_table,randomString
 
 # Import necessary packages
 from flask_restplus import reqparse
@@ -9,8 +9,6 @@ import requests
 import json
 import numpy as np
 import os
-import string
-import random 
 
 # FLASK TF BUGFIX
 model._make_predict_function()
@@ -22,9 +20,9 @@ def home():
 
 @app.route("/demo")
 def galaxy_predictor():
-    host_url = request.url_root
-    eval_r = requests.get(host_url+"galaxy_api/eval").json()
-    index,cols,values = parse_response(eval_r)
+    df,index = predictor.generate_sample(model)
+    cols = [i for i in df.columns]
+    values = [df.iloc[i].round(2) for i in range(len(df))]
     image_path = f'../static/data/demo_images/{index}.jpg'
     return render_template("pages/predictor.html",image=image_path,columns=cols,values=values)
 
@@ -34,11 +32,6 @@ def allowed_filename(filename):
         return True
     else:
         return False
-
-def randomString(stringLength):
-    """Generate a random string with the combination of lowercase and uppercase letters """
-    letters = string.ascii_letters
-    return ''.join(random.choice(letters) for i in range(stringLength))
 
 @app.route("/upload",methods=['GET','POST'])
 def upload_image():
@@ -63,8 +56,7 @@ def upload_image():
 @app.route("/input")
 def init_input():
     image = predictor.process_new(model_params,False)
-    host_url = request.url_root
-    preds = requests.post(host_url+"galaxy_api/predict",json={"image":image.tolist()}).json()
+    preds = model.predict(image)
     preds = preds[0]
     preds = [np.round(val,2) for val in preds[:3]]
     image_loc = "../static/images/demo2.jpg"
@@ -74,7 +66,7 @@ def init_input():
 def user_input(session_id):
     image = predictor.process_new(model_params,True)
     host_url = request.url_root
-    preds = requests.post(host_url+"galaxy_api/predict",json={"image":image.tolist()}).json()
+    preds = model.predict(image)
     preds = preds[0]
     preds = [np.round(val,2) for val in preds[:3]]
     image_loc = "../static/images/user_input_image"
