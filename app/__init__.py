@@ -1,7 +1,12 @@
 # Init Packages
 from flask import Flask,Blueprint
 from flask_restplus import Api,Resource
+
+# Import keras at init
 from tensorflow import get_default_graph
+import keras.backend as K
+from keras import losses,metrics
+from keras.models import load_model
 
 # Module code
 from app.predictor import load_galaxy_model
