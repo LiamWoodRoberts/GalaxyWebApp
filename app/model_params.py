@@ -16,10 +16,10 @@ class params:
         # Path to Folder
         
         # for heroku
-        folder_path = '/app/static/data/'
+        folder_path = './app/static/data/'
 
         # local
-        #folder_path = "/Users/LiamRoberts/Desktop/GalaxyWebApp/static/data/"
+        # folder_path = "/Users/LiamRoberts/Desktop/GalaxyWebApp/static/data/"
         
         # file paths
         self.folder_path = folder_path

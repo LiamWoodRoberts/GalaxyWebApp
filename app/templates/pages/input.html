@@ -1,0 +1,49 @@
+{% extends "base_templates/nav_bar2.html" %}
+
+{% block title %} User Upload {% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-auto">
+            <h2>Uploaded Image</h2>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-auto">
+            <p><strong>Is the Galaxy: 1. Simply smooth, 2. Possess features / disk, 3. A star</strong></p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-auto">
+            <img class="img-thumbnail border border-secondary" style="height:412px; width:412px; margin:auto;" src={{image}}>
+            <p><br></p>
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Smooth Galaxy</th>
+                        <th>Galaxy with Features/Disk</th>
+                        <th>Star</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for val in preds %}
+                        <td>{{ val }}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="file" class="form-control-file" name="image",id="image">
+                    <hr class="border-0">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    {% endblock content %}

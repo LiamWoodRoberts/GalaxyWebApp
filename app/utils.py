@@ -1,6 +1,8 @@
 import json
 import io
 import numpy as np
+import string
+import random 
 
 def parse_table(output):
     '''takes prediction output of galaxy_api and returns columns and values
@@ -22,3 +24,8 @@ def parse_response(r):
     df = json.loads(r['df'])
     cols,values = parse_table(df)
     return index,cols,values
+
+def randomString(stringLength):
+    """Generate a random string with the combination of lowercase and uppercase letters """
+    letters = string.ascii_letters
+    return ''.join(random.choice(letters) for i in range(stringLength))

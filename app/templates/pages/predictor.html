@@ -1,0 +1,109 @@
+{% extends "base_templates/nav_bar2.html" %}
+
+{% block title %} Survey Comparisons {% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+      <h1> Survey Comparisons</h1>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+      <p> This demo provides model predictions and crowd sourced responses for the first survey question: </p>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+      <p><strong>Is the Galaxy: 1. Simply smooth, 2. Possess features / disk, 3. A star</strong></p>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+      <img class="img-thumbnail border-secondary" src={{image}} alt="Sample Galaxy">
+      <hr class="border-0">
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            {% for col in columns %}
+            <th>{{ col }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in values %}
+          <tr>
+            {% for val in row %}
+            <td>{{ val }}</td>
+            {% endfor %}
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+      <a href="/demo">
+        <button class="btn btn-primary"> Predict New </button>
+      </a>
+      <hr class="border-0">
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock %}
+
+<header>
+  <div>
+    <h1>Galaxy Morphology Predictor</h1>
+  </div>
+</header>
+<section class="line"></section>
+
+<section style="flex-direction:column;">
+  <div class="text">
+    <p> This demo provides model predictions and crowd sourced responses for the first survey question: </p>
+    <p><strong>Is the Galaxy: 1. Simply smooth, 2. Possess features / disk, 3. A star</strong></p>
+    <img src={{image}} alt="Sample Galaxy">
+    <table>
+      <thead>
+        <tr>
+          {% for col in columns %}
+          <th>{{ col }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in values %}
+        <tr>
+          {% for val in row %}
+          <td>{{ val }}</td>
+          {% endfor %}
+          {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+</section>
+
+<section>
+  <div>
+    <a href="/demo">
+      <button> Predict New </button>
+    </a>
+  </div>
+</section>
