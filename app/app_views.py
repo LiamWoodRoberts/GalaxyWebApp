@@ -21,8 +21,10 @@ def home():
 @app.route("/demo")
 def galaxy_predictor():
     df,index = generate_sample(model)
-    cols = [i for i in df.columns]
+    cols = [""] + [i for i in df.columns]
     values = [df.iloc[i].round(2) for i in range(len(df))]
+    row_labels = ["Survey Responses","Model Prediction","Absolute Difference"]
+    values = [[row_labels[i]]+list(values[i]) for i in range(len(values))]
     image_path = f'../static/data/demo_images/{index}.jpg'
     return render_template("pages/predictor.html",image=image_path,columns=cols,values=values)
 
