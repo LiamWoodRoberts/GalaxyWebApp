@@ -7,7 +7,7 @@ chardet==3.0.4
 Click==7.0
 cloudpickle==1.2.1
 cycler==0.10.0
-dask==2.3.0
+dask==2021.10.0
 decorator==4.4.0
 Flask==1.1.1
 flask-restplus==0.12.1
